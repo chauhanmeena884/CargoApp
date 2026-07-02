@@ -11,13 +11,13 @@ CargoApp is a robust application designed to manage cargo operations efficiently
 ### Prerequisites
 
 - .NET Framework / .NET Core (version specified in project files)
-- C# 7.0 or higher
+- C# 8.0 or higher
 - Visual Studio or Visual Studio Code (recommended)
 
 
 ## 🏗️ Project Structure
 
-The application follows a modular architecture:
+**#The application follows a modular architecture:**
 CargoApp/ 
     ├── CargoMngt/
 
