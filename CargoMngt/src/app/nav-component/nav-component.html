@@ -1,0 +1,10 @@
+ <nav class="topbar">
+      <div class="brand">Cargo Manager</div>
+      <div class="links" @if(auth.isAuthenticated())>
+        <a routerLink="/products" routerLinkActive="active">Products</a>
+        <a routerLink="/orders" routerLinkActive="active">Orders</a>
+        <a routerLink="/payments" routerLinkActive="active">Payments</a>
+        <a routerLink="/admin" routerLinkActive="active" @if(auth.isAuthenticated())>Admin</a>
+      </div>
+      <button class="logout" @if(auth.isAuthenticated()) (click)="auth.logout()">Logout</button>
+    </nav>

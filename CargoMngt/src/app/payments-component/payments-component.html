@@ -1,0 +1,64 @@
+<section class="page-shell">
+      <div class="header-row">
+        <div>
+          <h1>Payment Flow</h1>
+          <p>Record new payments and review recent transaction history.</p>
+        </div>
+        <button (click)="loadPayments()">Refresh</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Order</th>
+              <th>Amount</th>
+              <th>Paid at</th>
+              <th>Status</th>
+                 <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+                @for (payment of payments();track $index) {
+            <tr >
+            
+              <td>{{ payment.id }}</td>
+              <td>{{ payment.orderId }}</td>
+              <td>{{ payment.amount }}</td> 
+              <td>{{ payment.paidAt | date:'short' }}</td>
+              <td>{{ payment.status }}</td>
+                 <td>
+                <button (click)="EditPayment(payment)">Edit</button>
+                <button (click)="deletePayment(payment.id)">Delete</button>
+                </td>
+            </tr>
+        } 
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-card">
+        <h2>New payment</h2>
+        <form (ngSubmit)="createPayment()">
+          <label>
+            Order ID
+            <input name="orderId" type="number" [(ngModel)]="payment().orderId" required />
+          </label>
+          <label>
+            Amount
+            <input name="amount" type="number" [(ngModel)]="payment().amount" required />
+          </label>
+          <label>
+            Status
+            <select name="status" [(ngModel)]="payment().status">
+              <option value="Created">Created</option>
+              <option value="Completed">Completed</option>
+              <option value="Failed">Failed</option>
+            </select>
+          </label>
+           <button type="Update" (click)="UpdatePayment()" >Update payment</button>
+          <button type="submit">Record payment</button>
+        </form>
+      </div>
+    </section>

@@ -1,0 +1,31 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "AdminService | v1",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5260"
+    }
+  ],
+  "paths": {
+    "/api/Admin/status": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Admin"
+    }
+  ]
+}

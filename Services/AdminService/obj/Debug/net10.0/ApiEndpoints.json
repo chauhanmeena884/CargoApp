@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "AdminService.Controllers.AdminController",
+    "Method": "Status",
+    "RelativePath": "api/Admin/status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,45 @@
+<section class="page-shell">
+      <div class="header-row">
+        <div>
+          <h1>Product Management</h1>
+          <p>View and create product inventory for your cargo operations.</p>
+        </div>
+        <button (click)="loadProducts()">Refresh</button>
+      </div>
+
+      <div class="product-grid">
+         @for (product of products();track $index) {
+        <article >
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+          <div class="meta">
+            <span>Price: {{ product.price }}</span>
+            <span>Stock: {{ product.quantityInStock }}</span>
+          </div>
+        </article>
+        }
+      </div>
+
+      <div class="form-card">
+        <h2>Create product</h2>
+        <form (ngSubmit)="addProduct()">
+          <label>
+            Name
+            <input name="name" [(ngModel)]="product().name" required />
+          </label>
+          <label>
+            Description
+            <input name="description" [(ngModel)]="product().description" required />
+          </label>
+          <label>
+            Price
+            <input name="price" type="number" [(ngModel)]="product().price" required />
+          </label>
+          <label>
+            Quantity
+            <input name="quantityInStock" type="number" [(ngModel)]="product().quantityInStock" required />
+          </label>
+          <button type="submit">Create product</button>
+        </form>
+      </div>
+    </section>

@@ -1,0 +1,60 @@
+
+<section class="page-shell">
+      <div class="header-row">
+        <div>
+          <h1>Order Management</h1>
+          <p>Create new cargo orders and review current status.</p>
+        </div>
+        <button (click)="loadOrders()">Refresh</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (order of orders();track $index) {
+            <tr>
+              <td>{{ order.id }}</td>
+              <td>{{ order.customerId }}</td>
+              <td>{{ order.productId }}</td>
+              <td>{{ order.quantity }}</td>
+              <td>{{order.totalAmount }}</td>
+              <td>{{ order.status }}</td>
+            </tr>
+          }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-card">
+        <h2>New order</h2>
+        <form (ngSubmit)="createOrder()">
+          <label>
+            Customer ID
+            <input name="customerId" type="number" [(ngModel)]="order().customerId" required />
+          </label>
+          <label>
+            Product ID
+            <input name="productId" type="number" [(ngModel)]="order().productId" required />
+          </label>
+          <label>
+            Quantity
+            <input name="quantity" type="number" [(ngModel)]="order().quantity" required />
+          </label>
+          <label>
+            Total amount
+            <input name="totalAmount" type="number" [(ngModel)]="order().totalAmount" required />
+          </label>
+          <button type="submit">Create order</button>
+        </form>
+      </div>
+    </section>
